@@ -11,3 +11,5 @@ function afficherjourssemaines() {
 
 // Appel de la fonction pour afficher les jours de la semaine
 afficherjourssemaines();
+
+
