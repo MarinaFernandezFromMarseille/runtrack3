@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-
-<button id = "button">click me</button>
+ 
+<button id = "button" onclick = "showhide()">Afficher/Masquer</button>
 
 <script src = "./script.js"></script>
 </body>
