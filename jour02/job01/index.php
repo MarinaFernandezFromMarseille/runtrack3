@@ -7,6 +7,11 @@
 </head>
 <body>
 
+<article id = "citation">
+    <p>La vie a beaucoup plus d'imagination que nous</p>
+    <button id = "button">Afficher la citation</button>
+</article>
+
 <script src = "./script.js"></script>
 </body>
 </html>
