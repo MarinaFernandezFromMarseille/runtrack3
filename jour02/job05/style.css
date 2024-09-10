@@ -1,0 +1,17 @@
+/* Style de base pour le body */
+body {
+    min-height: 4096px; /* Définit la hauteur minimale */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime le padding par défaut */
+    background-color: #f0f0f0; /* Couleur de fond légère pour le body */
+}
+
+/* Style pour le footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Hauteur du footer */
+    background-color: #000; /* Couleur de fond initiale */
+}

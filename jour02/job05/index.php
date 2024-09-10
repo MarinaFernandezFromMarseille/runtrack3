@@ -7,11 +7,12 @@
     <title>rainbow footer</title>
 </head>
 <body>
+    
 
 
 <script src = "./script.js"></script>
 
-<footer>
+<footer id = "footer">
 
 </footer>
 </body>
