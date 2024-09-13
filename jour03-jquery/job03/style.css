@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px auto;
+    width: 310px;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#tile1 { background-image: url('./pics/1.jpg'); }
+#tile2 { background-image: url('./pics/2.jpg'); }
+#tile3 { background-image: url('./pics/3.jpg'); }
+#tile4 { background-image: url('./pics/4.jpg'); }
+#tile5 { background-image: url('./pics/5.jpg'); }
+#tile6 { background-image: url('./pics/6.jpg'); }
+#tile7 { background-image: url('./pics/7.jpg'); }
+#tile8 { background-image: url('./pics/8.jpg'); }
+#tile9 { background-image: url('./pics/9.jpg'); }
+
+#empty {
+    background-color: #f0f0f0; /* Case vide */
+}
+
+#message {
+    font-size: 24px;
+    color: green;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
