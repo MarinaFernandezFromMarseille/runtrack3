@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taquin La Plateforme_</title>
+    <title>Jeu du Taquin - La Plateforme_</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
     <h1>Jeu du Taquin - La Plateforme_</h1>
     <div id="game-container">
-        <div class="tile" id="tile1"></div>
-        <div class="tile" id="tile2"></div>
-        <div class="tile" id="tile3"></div>
-        <div class="tile" id="tile4"></div>
-        <div class="tile" id="tile5"></div>
-        <div class="tile" id="tile6"></div>
-        <div class="tile" id="tile7"></div>
-        <div class="tile" id="tile8"></div>
-        <div class="tile" id="empty"></div> <!-- Tuile vide -->
+        <div class="tile" data-id="1" style="background-image: url('./pics/1.jpg');"></div>
+        <div class="tile" data-id="2" style="background-image: url('./pics/2.jpg');"></div>
+        <div class="tile" data-id="3" style="background-image: url('./pics/3.jpg');"></div>
+        <div class="tile" data-id="4" style="background-image: url('./pics/4.jpg');"></div>
+        <div class="tile" data-id="5" style="background-image: url('./pics/5.jpg');"></div>
+        <div class="tile" data-id="6" style="background-image: url('./pics/6.jpg');"></div>
+        <div class="tile" data-id="7" style="background-image: url('./pics/7.jpg');"></div>
+        <div class="tile" data-id="8" style="background-image: url('./pics/8.jpg');"></div>
+        <div class="empty" data-id="9"></div>
     </div>
 
-    <p id="message"></p>
-    <button id="restart" style="display:none;">Recommencer</button>
 
-    <script src="script.js"></script>
+<div class = "victory">
+    Vous avez gagné!!!
+</div>
+    <script src="./script.js"></script>
 </body>
 </html>

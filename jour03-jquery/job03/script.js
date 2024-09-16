@@ -1,62 +1,62 @@
-const tiles = Array.from(document.querySelectorAll('.tile'));
-const emptyTile = document.getElementById('empty');
-const message = document.getElementById('message');
-const restartButton = document.getElementById('restart');
-
-// Initialisation du plateau avec une configuration aléatoire
-function shuffleTiles() {
-    const shuffledTiles = tiles.sort(() => Math.random() - 0.5);
-    shuffledTiles.forEach((tile, index) => {
-        document.getElementById('game-container').appendChild(tile);
-    });
-    message.textContent = '';
-    restartButton.style.display = 'none';
-}
-
-// Vérification si une tuile peut se déplacer dans la case vide
-function canMove(tile) {
-    const tilePos = tile.getBoundingClientRect();
-    const emptyPos = emptyTile.getBoundingClientRect();
-    
-    const isAdjacent = Math.abs(tilePos.top - emptyPos.top) + Math.abs(tilePos.left - emptyPos.left) === emptyPos.width;
-    return isAdjacent;
-}
-
-// Déplacer une tuile
-function moveTile(tile) {
-    if (canMove(tile)) {
-        // Echanger les positions des tuiles
-        emptyTile.parentNode.insertBefore(tile, emptyTile);
+function shuffle() {
+    var grid = document.getElementById("game-container");
+    for (var i = grid.children.length; i >= 0; i--) {
+        grid.appendChild(grid.children[Math.random() * i | 0]);
     }
 }
 
-// Vérifier si la configuration est gagnante
-function checkWin() {
-    const currentTiles = Array.from(document.querySelectorAll('.tile'));
-    const correctOrder = tiles.every((tile, index) => tile.id === `tile${index + 1}`);
-    
-    if (correctOrder) {
-        message.textContent = 'Vous avez gagné !';
-        restartButton.style.display = 'block';
-        // Bloquer le jeu
-        tiles.forEach(tile => tile.removeEventListener('click', handleClick));
+function loadGame() {
+    shuffle();
+}
+
+window.addEventListener('click', function (e) {
+    if (e.target.className.includes('tile')) {
+        var emptyTile = document.querySelector('.empty');
+
+        // Vérifie si la tuile cliquée est adjacente à la tuile vide
+        if (getDistance(e.target.offsetLeft, e.target.offsetTop, emptyTile.offsetLeft, emptyTile.offsetTop) <= 110) {
+            // Échange les classes et les images de fond
+            emptyTile.className = "tile";
+            emptyTile.style.backgroundImage = e.target.style.backgroundImage;
+            emptyTile.setAttribute("data-id", e.target.getAttribute("data-id"));
+            
+            e.target.className = "empty";
+            e.target.style.backgroundImage = "";
+            e.target.setAttribute("data-id", "9"); // La case vide est désormais la case 9
+        }
+    }
+
+    checkVictory();
+});
+
+function getDistance(x1, y1, x2, y2) {
+    var a = x1 - x2;
+    var b = y1 - y2;
+    return Math.sqrt(a * a + b * b);
+}
+
+function checkVictory() {
+    var tiles = document.querySelectorAll('#game-container > div');
+    var score = 0;
+
+
+
+    // Vérifie si les tuiles sont dans l'ordre en utilisant l'attribut data-id
+    for (var i = 0; i < tiles.length; i++) {
+        if (tiles[i].getAttribute('data-id') === '' + (i + 1)) {
+            score++;
+            console.log('un point en plus');
+        }
+    }
+
+    console.log("score: " + score);
+
+    if (score >= 8) {
+        var victoryTile = document.querySelector('.victory');
+        victoryTile.style.opacity = 1;
+        console.log('tas gagné gros porc');
     }
 }
 
-// Gestion du clic sur une tuile
-function handleClick(e) {
-    moveTile(e.target);
-    checkWin();
-}
-
-// Initialisation du jeu
-function initGame() {
-    shuffleTiles();
-    tiles.forEach(tile => tile.addEventListener('click', handleClick));
-}
-
-// Recommencer la partie
-restartButton.addEventListener('click', initGame);
-
-// Lancer la première partie
-initGame();
+// Start the game
+loadGame();
