@@ -11,7 +11,7 @@ document.getElementById('filtrer').addEventListener('click', function() {
             // Filtre les données
             const filteredData = data.filter(pokemon => {
                 return (!id || String(pokemon.id).includes(id)) &&
-                       (!nom || (pokemon.nom && pokemon.nom.toLowerCase().includes(nom.toLowerCase()))) &&
+                       (!nom || (pokemon.name && pokemon.name.french.toLowerCase().includes(nom.toLowerCase()))) &&
                        (!type || (pokemon.type && pokemon.type === type));
             });
 
@@ -21,7 +21,7 @@ document.getElementById('filtrer').addEventListener('click', function() {
 
             filteredData.forEach(pokemon => {
                 const li = document.createElement('li');
-                li.textContent = `ID: ${pokemon.id}, Nom: ${pokemon.nom}, Type: ${pokemon.type}`;
+                li.textContent = `ID: ${pokemon.id}, Nom: ${pokemon.name.french}, Type: ${pokemon.type}`;
                 resultsList.appendChild(li);
             });
         })
