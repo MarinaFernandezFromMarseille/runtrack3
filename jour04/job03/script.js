@@ -10,10 +10,10 @@ document.getElementById('filtrer').addEventListener('click', function() {
         .then(data => {
             // Filtre les données
             const filteredData = data.filter(pokemon => {
-                return (!id || String(pokemon.id).includes(id)) &&
+                return (!id || String(pokemon.id) === id) &&
                        (!nom || (pokemon.name && pokemon.name.french.toLowerCase().includes(nom.toLowerCase()))) &&
-                       (!type || (pokemon.type && pokemon.type === type));
-            });
+                       (!type || (pokemon.type && pokemon.type.includes(type)));
+            }); console.log(type);
 
             // Affiche les résultats
             const resultsList = document.getElementById('results');
