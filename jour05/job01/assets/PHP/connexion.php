@@ -1,4 +1,6 @@
 <?php
+session_start(); // Démarrer la session dès le début
+
 // Paramètres de connexion à la base de données
 $host = 'localhost';
 $dbname = 'job01jour5';
@@ -14,6 +16,16 @@ try {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
+    // Vérifier si les champs sont remplis
+    if (empty($email) || empty($password)) {
+        $response = [
+            'status' => 'error',
+            'message' => 'Veuillez remplir tous les champs.'
+        ];
+        echo json_encode($response);
+        exit;
+    }
+
     // Requête pour vérifier si l'utilisateur existe dans la base de données
     $stmt = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
     $stmt->execute(['email' => $email]);
@@ -23,17 +35,16 @@ try {
     if ($user) {
         // Vérifier le mot de passe
         if (password_verify($password, $user['password'])) {
+            // Le mot de passe est correct
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['password'] = $user['password'];
+
             $response = [
                 'status' => 'success',
-                'message' => 'Connexion réussie !'
+                'message' => 'Connexion réussie.'
             ];
-
-            // Démarrer une session utilisateur
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['prenom'] = $user['prenom'];
         } else {
-            // Mauvais mot de passe
+            // Le mot de passe est incorrect
             $response = [
                 'status' => 'error',
                 'message' => 'Mot de passe incorrect.'
@@ -63,4 +74,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode($response);
 }
-?>

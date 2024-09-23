@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     const formData = new FormData(this);
 
     // Faire une requête POST à connexion.php
-    fetch('../PHP/inscription.php', {
+    fetch('../PHP/connexion.php', { 
         method: 'POST',
         body: formData
     })
@@ -16,8 +16,11 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
         if (data.status === 'success') {
             // Si la connexion est réussie, rediriger vers une autre page (par exemple dashboard.php)
-            window.location.href = 'dashboard.php';
+            setTimeout(function() {
+                window.location.href = "../../index.php"; // Redirection vers la page souhaitée
+            }, 3000); 
         }
     })
     .catch(error => console.error('Erreur:', error));
 });
+

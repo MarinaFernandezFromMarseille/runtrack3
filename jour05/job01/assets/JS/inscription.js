@@ -92,6 +92,15 @@ form.addEventListener('submit', (event) => {
     .then(data => {
         // Afficher le message retourné par PHP dans l'élément #result
         document.getElementById('result').textContent = data.message;
+
+        if (data.status === 'success') {
+            // Si la connexion est réussie, rediriger vers une autre page (par exemple dashboard.php)
+            setTimeout(function() {
+                window.location.href = "../includes/_connexion.html"; // Redirection vers la page souhaitée
+            }, 3000); 
+        }
+
     })
     .catch(error => console.error('Erreur:', error));
 });
+
