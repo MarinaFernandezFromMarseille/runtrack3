@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/CSS/inscription.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/CSS/inscription.css">
+
+    <title>Inscription</title>
 </head>
 <body>
 
-    <form id = "registration-form" method="post">
-        <label for="prenom">Prénom</label>
-        <input type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom" required>
-        <span class="error-message1" id="prenom-error"></span>
+    <form id="registration-form" method="post">
+        <label for="firstname">Prélastname</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Entrez votre prélastname" required>
+        <span class="error-message1" id="firstname-error"></span>
 
-        <label for="nom">Nom</label>
-        <input type="text" name="nom" id="nom" placeholder="Entrez votre nom" required>
-        <span class="error-message2" id="nom-error"></span>
+        <label for="lastname">lastname</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Entrez votre lastname" required>
+        <span class="error-message2" id="lastname-error"></span>
 
         <label for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="Entrez votre email" required>
         <span class="error-message3" id="email-error"></span>
 
-        <label for = "adresse">Adresse</label>
-        <input type="text" name="adresse" id="adresse" placeholder="Entrez votre adresse" required>
+        <label for="address">address</label>
+        <input type="text" name="address" id="address" placeholder="Entrez votre address" required>
 
-        <label for = "code-postal">Code postal</label>
-        <input type="text" name="code-postal" id="code-postal" placeholder="Entrez votre code postal" required>
-        <span class="error-message4" id="code-postal-error"></span>
+        <label for="postal_code">Code postal</label>
+        <input type="text" name="postal_code" id="postal_code" placeholder="Entrez votre code postal" required>
+        <span class="error-message4" id="postal_code-error"></span>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required>
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" placeholder="Entrez votre password" required autocomplete="current-password">
         <span class="error-message5" id="password-error"></span>
 
-        <input type="submit" value="Connexion">
+        <input type="submit" value="inscription">
     </form>
+
+    <div id="result"></div>
  
     <script src="../JS/inscription.js"></script>
 </body>

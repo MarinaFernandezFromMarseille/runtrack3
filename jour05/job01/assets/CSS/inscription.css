@@ -1,0 +1,35 @@
+#error {
+  color: red;
+  font-weight: bold;
+}
+
+#success {
+  color: green;
+  font-weight: bold;
+}
+
+header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 1vw;
+}
+
+ul {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.title {
+
+    font-size: xx-large;
+}
+
+

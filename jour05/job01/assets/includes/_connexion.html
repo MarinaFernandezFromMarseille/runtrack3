@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./connexion.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/CSS/connexion.css">
+
+    <title>Connexion</title>
 </head>
 <body>
 
-    <form action="" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="Enter your username" required>
-        <label for="password">Password</label>
-        <input tyope="password" name="password" id="password" placeholder="Enter your password" required>
-        <input type="submit" value="Connexion">
+    <form id="login-form" method="post">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Entrez votre email" required autocomplete="username">
+        
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required autocomplete="current-password">
+        
+
+        <input type="submit" value="connexion">
     </form>
-    
-    <script src="./script.js"></script>
+
+    <div id="result"></div> <!-- Pour afficher le résultat du serveur -->
+
+    <script src="../JS/connexion.js"></script>
 </body>
 </html>
