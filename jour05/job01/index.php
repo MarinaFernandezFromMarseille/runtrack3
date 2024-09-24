@@ -1,15 +1,3 @@
-<?php
-session_start(); // Démarrer la session
-
-// Vérifier si l'utilisateur est connecté
-if (isset($_SESSION['email'])) {
-    $email= $_SESSION['email'];
-    echo "<p>Bonjour, $email !</p>";
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +14,24 @@ if (isset($_SESSION['email'])) {
 
 <body>
     <header>
+    <?php
+session_start(); // Démarrer la session
+
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION ['email'])) {
+    $email = $_SESSION['email'];
+    echo "<p>Bonjour, $email !</p>";
+    echo '
+    <form method="POST" action="deconnexion.php">
+        <button type="submit">Déconnexion</button>
+    </form>';
+} else {
+    echo "<p>Bienvenue sur notre site !</p>";
+}
+?>
 
         <h1>Jour05</h1>
-        <p class = "title">job 01</p>
+        <p class="title">job 01</p>
         <nav>
             <ul>
                 <li><a href="./assets/includes/_inscription.html">Inscription</a></li>
