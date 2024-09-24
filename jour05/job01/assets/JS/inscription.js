@@ -1,6 +1,6 @@
-const form = document.getElementById('registration-form');
+const form = document.querySelector('#form-inscription form'); // Sélection du formulaire d'inscription
 
-// Fonction de validation du prélastname
+// Fonction de validation du prénom
 function validatefirstname(firstname) {
     if (firstname.length < 2) {
         return 'Le prénom doit contenir au moins 2 caractères';
@@ -8,7 +8,7 @@ function validatefirstname(firstname) {
     return '';
 }
 
-// Fonction de validation du lastname
+// Fonction de validation du nom
 function validatelastname(lastname) {
     if (lastname.length < 2) {
         return 'Le nom doit contenir au moins 2 caractères';
@@ -20,7 +20,7 @@ function validatelastname(lastname) {
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        return 'Veuillez entrer une address email valide';
+        return 'Veuillez entrer une adresse email valide';
     }
     return '';
 }
@@ -29,20 +29,20 @@ function validateEmail(email) {
 function validateCodePostal(codePostal) {
     const postalRegex = /^[0-9]{5}$/;
     if (!postalRegex.test(codePostal)) {
-        return 'Le code postal doit être un lastnamebre à 5 chiffres';
+        return 'Le code postal doit être un nombre à 5 chiffres';
     }
     return '';
 }
 
-// Fonction de validation du password
+// Fonction de validation du mot de passe
 function validatePassword(password) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.;?!*@]).+$/;
     if (!passwordRegex.test(password)) {
-        return 'Le password doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial parmi .;?!*@';
+        return 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial parmi .;?!*@';
     }
 
     if (password.length < 12) {
-        return 'Le password doit contenir au moins 12 caractères';
+        return 'Le mot de passe doit contenir au moins 12 caractères';
     }
     return '';
 }
@@ -84,7 +84,7 @@ form.addEventListener('submit', (event) => {
     const formData = new FormData(form);
 
     // Faire la requête avec fetch
-    fetch('../PHP/inscription.php', {
+    fetch('./assets/PHP/inscription.php', { // Corrige le chemin ici si nécessaire
         method: 'POST',
         body: formData
     })
@@ -94,13 +94,12 @@ form.addEventListener('submit', (event) => {
         document.getElementById('result').textContent = data.message;
 
         if (data.status === 'success') {
-            // Si la connexion est réussie, rediriger vers une autre page (par exemple dashboard.php)
+            // Si l'inscription est réussie, afficher un message et faire apparaître le formulaire de connexion
             setTimeout(function() {
-                window.location.href = "../includes/_connexion.html"; // Redirection vers la page souhaitée
+                document.getElementById('form-inscription').style.display = 'none';
+                document.getElementById('form-connexion').style.display = 'block';
             }, 3000); 
         }
-
     })
     .catch(error => console.error('Erreur:', error));
 });
-

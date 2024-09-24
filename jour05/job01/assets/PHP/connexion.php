@@ -37,7 +37,6 @@ try {
         if (password_verify($password, $user['password'])) {
             // Le mot de passe est correct
             $_SESSION['email'] = $user['email'];
-            $_SESSION['password'] = $user['password'];
 
             $response = [
                 'status' => 'success',

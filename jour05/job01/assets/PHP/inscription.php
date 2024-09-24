@@ -10,7 +10,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupérer les données envoyées depuis JavaScript
+    // Récupérer les données envoyées depuis le formulaire
     $firstname = htmlspecialchars(trim($_POST['firstname'] ?? ''));
     $lastname = htmlspecialchars(trim($_POST['lastname'] ?? ''));
     $address = htmlspecialchars(trim($_POST['address'] ?? ''));
@@ -64,5 +64,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode($response);
 }
-?>
-
