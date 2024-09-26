@@ -1,0 +1,23 @@
+body {
+    background-color: #f0f0f0;
+  }
+
+  .side-panel {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+
+  .limbes-panel {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .progress {
+    height: 30px;
+  }
+
+  .progress-bar {
+    background-color: #ffcc00;
+  }
