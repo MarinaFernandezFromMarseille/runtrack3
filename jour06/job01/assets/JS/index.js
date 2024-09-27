@@ -28,7 +28,7 @@
     });
 
     $('#page3').click(function () {
-      $('#jumbotronText').html(`<h1>NE VOUS VEXEZ PAS</h1><p> J'accepte de ne pas divulguer ces images si vous déposez votre salaire sur mon bureau demain matin... en espèces si possible :) xoxo</p><img src = "./assets/PICS/bisous.gif">`);
+      $('#jumbotronText').html(`<h1>NE VOUS VEXEZ PAS</h1><p> J'accepte de ne pas divulguer ces images si vous déposez votre salaire sur mon bureau demain matin... en espèces si possible(sinon, considérez que ceci n'est que le fruit de votre imagination...<span class='bolde'>ME VIREZ PAS</span>) :') xoxo</p><img src = "./assets/PICS/bisous.gif">`);
     });
 
     // Limbes list making items active on click
